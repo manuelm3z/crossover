@@ -1,0 +1,59 @@
+header.header {
+	display: none;
+}
+header.header.logged {
+	display: block;
+}
+    ul.header {
+    	padding-right: 10px;
+    }
+
+.login {
+	width: 400px;
+    margin: 5% auto 0 auto;
+    font-family: 'Oswald', sans-serif;
+}
+
+form.login-form {
+	border: 1px solid gray;
+}
+    form.login-form input,
+    form.login-form button {
+	    font-family: 'Open Sans', sans-serif;
+	    border-radius: 0;
+    }
+
+    .login-form .header-content {
+    	padding: 15px 20px;
+    }
+        .header-content h1 {
+        	text-align: center;
+        }
+    .login-form .body-content {
+	    padding: 15px 20px;
+	    position: relative;
+	}
+
+.input-icon {
+    position: relative;
+}
+    .input-icon.right i {
+        right: 8px;
+        float: right;
+    }
+
+	.input-icon i {
+	    color: #999999;
+	    display: block;
+	    position: absolute;
+	    margin: 10px 2px 4px 10px;
+	    width: 16px;
+	    height: 16px;
+	    font-size: 16px;
+	    text-align: center;
+	}
+
+	.input-icon.right input {
+	    padding-left: 12px;
+	    padding-right: 33px;
+	}
