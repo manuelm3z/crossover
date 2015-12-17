@@ -1,0 +1,15 @@
+<div class="navbar-collapse collapse" ng-controller="HeaderController">
+	<a class="navbar-brand" ui-sref="app.dashboard">
+		<img ng-src="{{ logo }}" alt="logo" class="img-responsive" style="height:120%;">
+	</a>
+	<ul class="header nav navbar-nav navbar-right">
+        <li>
+        	<a href="">{{ user.username }}</a>
+        </li>
+        <li>
+        	<a ng-click="logout()">
+        		<i class="fa fa-sign-in"></i> Logout
+        	</a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-md-6">
+        <p>{{ descriptionLabel[lang] }} ({{user.username}})</p>
+        <canvas id="ownCampaigns" class="chart chart-bar" chart-data="ownData" chart-labels="labels" chart-series="series" chart-legend="true" chart-colours="['Red', 'Green', 'Yellow']"></canvas>
+    </div>
+    <div class="col-md-6">
+        <p>{{ descriptionSMSLabel[lang] }} ({{user.username}})</p>
+        <canvas id="ownSms" class="chart chart-bar" chart-data="ownDataSMS" chart-labels="labelsSMS" chart-series="series" chart-legend="true" chart-colours="['Red', 'Green', 'Yellow']"></canvas>
+    </div>
+</div>
