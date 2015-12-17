@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'ui.router', 'ngResource', 'chart.js']);
+var app = angular.module('app', ['ngRoute', 'ui.router', 'ngResource', 'ngAnimate', 'chart.js', 'ngDragDrop']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 	"use strict";
@@ -11,7 +11,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             data: {
                 requireLogin: false
             },
-            controller: 'LoginController'
+            controller: 'LoginController',
+            onEnter: function () {
+            	setTimeout(function () {
+            	    adjustDivWithWindow('.login');
+            		
+            	}, 1);
+				window.onresize = function () {
+					adjustDivWithWindow('.login');
+				};
+            }
         })
         .state('app', {
             abstract: true,
@@ -51,3 +60,9 @@ app.run(['$rootScope', '$state', 'Session', function ($rootScope, $state, Sessio
         }
     });
 }]);
+
+function adjustDivWithWindow(element) {
+	if (window.outerHeight < window.outerWidth) {
+        document.querySelector(element).style.minHeight = (window.outerHeight - 180) + 'px';
+	}
+}
