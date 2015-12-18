@@ -13,13 +13,15 @@
 	    <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body ng-controller="AppController">
-    	<header class="header navbar navbar-inverse navbar-fixed-top" ng-class="{'logged': logged }" ng-include="'partial/header.html'"></header>
+        <header ng-class="{'logged': logged }">
+            <nav class="navbar navbar-default navbar-fixed-top"  ng-include="'partial/header.html'"></nav>
+        </header>
     	<div class="page-container">
 			<div class="page-sidebar navbar-collapse collapse" ng-class="{'logged': logged }" ng-include="'partial/sidebar.html'"></div>
 			<section class="page-content" ui-view ng-class="{'logged': logged }"></section>
 		</div>
 		<footer>
-			<div class="container">
+			<div class="container" ng-class="{'logged': logged }">
 				<a data-toggle="modal" data-target="#privacy">Privacy Policy</a>
 				<a data-toggle="modal" data-target="#terms">Terms of Use</a>
 				<a data-toggle="modal" data-target="#support">Support</a>
@@ -83,7 +85,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary min-width-button">Send</button>
+                            <button type="submit" class="btn btn-info min-width-button">Send</button>
                         </div>
                     </form>
                 </div>

@@ -1,15 +1,29 @@
-<div class="navbar-collapse collapse" ng-controller="HeaderController">
-	<a class="navbar-brand" ui-sref="app.dashboard">
-		<img ng-src="{{ logo }}" alt="logo" class="img-responsive" style="height:120%;">
-	</a>
-	<ul class="header nav navbar-nav navbar-right">
-        <li>
-        	<a href="">{{ user.username }}</a>
-        </li>
-        <li>
-        	<a ng-click="logout()">
-        		<i class="fa fa-sign-in"></i> Logout
-        	</a>
-        </li>
-    </ul>
+<div class="container-fluid" ng-controller="HeaderController">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ui-sref="app.dashboard">
+            <img src="/images/logo.png" alt="logo" class="img-responsive">
+        </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+        <ul class="header nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle white-letter" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.username }}
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="gray-letter" ng-click="logout()">
+                            <i class="fa fa-sign-in"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 </div>
