@@ -32,7 +32,13 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         .state('app.dashboard', {
             url: '/dashboard',
             templateUrl: 'states/main.html',
-            controller: 'DashboardController'
+            controller: 'DashboardController',
+            onEnter: function () {
+                setTimeout(adjustDivCharts,1000);
+                window.onresize = function () {
+                    adjustDivCharts();
+                };
+            }
         });
 }]);
 
@@ -69,4 +75,9 @@ function adjustDivWithWindow(element) {
 	if (window.outerHeight < window.outerWidth) {
         document.querySelector(element).style.minHeight = (window.outerHeight - 180) + 'px';
 	}
+    $('footer > .container').fadeIn(1000);
+}
+function adjustDivCharts() {
+    var minHeight = window.outerHeight - 254;
+    document.querySelector('.container-charts').style.minHeight = minHeight + 'px';
 }
