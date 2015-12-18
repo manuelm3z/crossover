@@ -5,10 +5,12 @@ app.controller('LoginController', ['$rootScope', '$scope', 'Login', 'Session', '
 	$scope.login = function (form) {
 		Login.get({username: $scope.log.username, password: $scope.log.password}, function (data) {
 			if (data.loginSucceeded) {
-			    Session.set({
+				var user = {
 					username: $scope.log.username,
 					id: data.sessionId
-				});
+				};
+			    Session.set(user);
+				$rootScope.$broadcast('LogIn', user);
 				$state.transitionTo('app.dashboard');
 			} else {
 				$scope.msj = 'User or password incorrect';

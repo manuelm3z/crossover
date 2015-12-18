@@ -4,6 +4,10 @@ app.controller('HeaderController', ['$rootScope', '$scope', 'Logout', 'Session',
 		$scope.user = $rootScope.user;
 	}
 
+	$rootScope.$on('LogIn', function (event, data) {
+		$scope.user = data;
+	});
+
 	$scope.logout = function () {
 		Logout.get($scope.user.id, function (data) {
 			    if (data == 'SUCCESS') {
