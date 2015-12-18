@@ -1,18 +1,61 @@
-.navbar-inverse {
+.btn-group-xs > .btn,
+.btn-xs,
+.btn {
+    border-radius: 0px;
+}
+
+.modal-content {
+    border-radius: 0px;
+}
+    .modal-title {
+        font-family: 'Open Sans', sans-serif;
+    }
+
+.navbar {
+    margin-bottom: 0px;
+}
+.navbar-default {
     background-color: #37455f;
     border-color: #37455f;
 }
 	.navbar-inverse .navbar-nav > li > a {
 	    color: #ffffff;
 	}
-header.header {
+header {
 	display: none;
 }
-header.header.logged {
+header.logged {
 	display: block;
 }
     ul.header {
     	padding-right: 10px;
+    }
+    .navbar-brand img {
+        margin: 0 auto;
+    }
+    a.white-letter {
+        cursor: pointer;
+    }
+    .navbar-brand {
+        padding: 0;
+    }
+    .navbar-brand img {
+        height: 100%;
+    }
+    button.navbar-toggle span.icon-bar {
+        background-color: #ffffff !important;
+    }
+    button.navbar-toggle:hover {
+        background-color: #ffffff !important;
+    }
+    button.navbar-toggle:hover span.icon-bar {
+        background-color: #37455f !important;
+    }
+    .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:focus,
+    .navbar-default .navbar-nav > .open > a:hover {
+        color: #ffffff;
+        background-color: #445675;
     }
 
 .login {
@@ -20,16 +63,21 @@ header.header.logged {
     margin: 5% auto 0 auto;
     font-family: 'Oswald', sans-serif;
 }
+form input,
+form button,
+form textarea {
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 0 !important;
+}
+form label {
+    font-family: 'Open Sans', sans-serif;
+    color: #111;
+    font-weight: normal;
+}
 
 form.login-form {
 	border: 1px solid gray;
 }
-    form.login-form input,
-    form.login-form button {
-	    font-family: 'Open Sans', sans-serif;
-	    border-radius: 0;
-    }
-
     .login-form .header-content {
     	padding: 15px 20px;
     }
@@ -90,8 +138,7 @@ form.login-form {
 }
 
 .page-content.logged {
-	margin-top: 50px;
-	padding-top: 10px;
+	padding:10px 10px;
 }
 
 .page-sidebar 
@@ -136,6 +183,7 @@ form.login-form {
             text-decoration: none;
             font-size: 14px;
             trasition: 0.3s;
+            font-family: 'Oswald', sans-serif;
         }
         ul.page-sidebar-menu > li.open > a, 
         ul.page-sidebar-menu > li > a:hover, 
@@ -144,8 +192,75 @@ form.login-form {
             background: #dc6767;
             color: #ffffff;
         }
+    .title-section div h2 {
+        background-color: #f0f2f5;
+        margin-top: 0;
+        margin-bottom: 10px;
+        padding: 5px 15px;
+    }
+    .chart-best.ng-hide-add.ng-hide-add-active,
+    .chart-best.ng-hide-remove.ng-hide-remove-active {
+        -webkit-transition: all linear 0.3s;
+        transition: all linear 0.3s;
+    }
+    .chart-best.ng-hide {
+        opacity: 0;
+    }
+    .chart-best > div.active {
+        box-shadow: #5bc0de 1px 1px 38px;
+    }
+    .chart-best > div > .chart-header {
+        min-height: 50px;
+    }
+        .chart-best > div > .chart-header > h3 {
+            margin: 12px 0px;
+            color: white;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .chart-best > div > .chart-header > .btn-group {
+            margin: 13px 0px;
+        }
+    .chart-best > div > .chart-content {
+        margin: 0 2px;
+        padding: 10px 0px 5px 0px;
+        font-family: 'Open Sans', sans-serif;
+    }
+    .chart-best > div.background-green > .chart-content {
+        border-bottom: 2px solid #488c6c;
+    }
+    .chart-best > div.background-blue > .chart-content {
+        border-bottom: 2px solid #488c6c;
+    }
+    .chart-best > div.background-orange > .chart-content {
+        border-bottom: 2px solid #f2994b;
+    }
+    .chart-best > div.background-purple > .chart-content {
+        border-bottom: 2px solid #bf3773;
+    }
+footer .container {
+    display: none;
+    text-align: center;
+}
+footer .container.logged {
+    display: block;
+    margin-left: 225px;
+    padding: 5px 0 5px 32%;
+    background-color: #f0f2f5;
+    margin-bottom: 10px;
+    text-align: left;
+}
 
 @media (min-width: 768px) {
+    .navbar {
+        border-radius: 0px;
+    }
+    .navbar-brand {
+        width: 225px;
+        padding: 0;
+    }
+        .navbar-brand img {
+            height: 100%;
+        }
     .page-sidebar 
     {
         width: 225px;
@@ -159,9 +274,34 @@ form.login-form {
     .page-content.logged
     {
         margin-left: 225px;
+        margin-top: 50px;
+    }
+    .chart-best {
+        margin-bottom: 10px;
     }
 }
 .white-letter
 {
-    color: #ffffff;
+    color: #ffffff !important;
+}
+.gray-letter {
+    color: #777 !important;
+}
+.align-center {
+    text-align: center;
+}
+.background-green {
+    background-color: #488c6c;
+}
+.background-blue {
+    background-color: #0a819c;
+}
+.background-orange {
+    background-color: #f2994b;
+}
+.background-purple {
+    background-color: #bf3773;
+}
+.background-white {
+    background-color: #ffffff;
 }

@@ -1,68 +1,93 @@
-<div class="row">
-    <div data-drag="true" jqyoui-draggable class="col-md-6" ng-show="showTotalSalesman">
-        <h2 class="col-md-8">Total per Salesman</h2>
-        <div class="col-md-4 btn-group btn-group-xs" role="group">
-            <button type="button" class="btn btn-info" ng-click="update('totalSalesman')">Update</button>
-            <button type="button" class="btn btn-danger" ng-click="close('showTotalSalesman')">Close</button>
-        </div>
-        <canvas id="totalSalesman" class="chart chart-pie" chart-data="dataSalesman" chart-labels="labelsSalesman"></canvas> 
+<div class="row title-section">
+    <div class="col-md-12">
+        <h2 class="page-title">Dashboard</h2>
     </div>
-    <div data-drag="true" jqyoui-draggable class="col-md-6" ng-show="showTotalSalesPerMonth">
-        <h2 class="col-md-8">Total Sales per Month</h2>
-        <div class="col-md-4 btn-group btn-group-xs" role="group">
-            <button type="button" class="btn btn-info" ng-click="update('totalSalesPerMonth')">Update</button>
-            <button type="button" class="btn btn-danger" ng-click="close('showTotalSalesPerMonth')">Close</button>
+</div>
+<div class="row container-charts">
+    <div data-drag="true" jqyoui-draggable class="col-md-6 chart-best" ng-show="showTotalSalesman">
+        <div class="background-green" ng-class="{'active' : activeTotalSalesman }">
+            <div class="chart-header">
+            	<h3 class="col-md-8">Total per Salesman</h3>
+	            <div class="col-md-4 btn-group btn-group-xs" role="group">
+	                <button type="button" class="btn btn-info" ng-click="update('totalSalesman')">Update</button>
+	                <button type="button" class="btn btn-danger" ng-click="close('showTotalSalesman')">Close</button>
+	            </div>	
+            </div>
+            <div class="chart-content background-white">
+                <canvas id="totalSalesman" class="chart chart-pie" chart-data="dataSalesman" chart-labels="labelsSalesman"></canvas> 
+            </div>
         </div>
-    	<canvas id="totalSalesPerMonth" class="chart chart-bar" chart-data="dataPerMonth" chart-labels="labelsPerMonth" chart-series="seriesPerMonth"></canvas>
     </div>
-    <div data-drag="true" jqyoui-draggable class="col-md-6 table-responsive" ng-show="showTopSalesOrders">
-    	<h2 class="col-md-8">Top 5 Sales Orders</h2>
-        <div class="col-md-4 btn-group btn-group-xs" role="group">
-            <button type="button" class="btn btn-info" ng-click="update('topSalesOrders')">Update</button>
-            <button type="button" class="btn btn-danger" ng-click="close('showTopSalesOrders')">Close</button>
+    <div data-drag="true" jqyoui-draggable class="col-md-6 chart-best" ng-show="showTotalSalesPerMonth">
+        <div class="background-blue" ng-class="{'active' : activeTotalSalesPerMonth }">
+            <div class="chart-header">
+                <h3 class="col-md-8">Total Sales per Month</h3>
+                <div class="col-md-4 btn-group btn-group-xs" role="group">
+                    <button type="button" class="btn btn-info" ng-click="update('totalSalesPerMonth')">Update</button>
+                    <button type="button" class="btn btn-danger" ng-click="close('showTotalSalesPerMonth')">Close</button>
+                </div>
+            </div>
+            <div class="chart-content background-white">
+                <canvas id="totalSalesPerMonth" class="chart chart-bar" chart-data="dataPerMonth" chart-labels="labelsPerMonth" chart-series="seriesPerMonth"></canvas>
+            </div>
         </div>
-    	<div>
-    		<table class="table table-striped">
-    			<thead>
-    				<tr>
-    					<th>Order</th>
-    					<th>Name</th>
-    					<th>Value</th>
-    					<th>Quantity</th>
-    				</tr>
-    			</thead>
-    			<tbody>
-    				<tr ng-repeat="sale in orders">
-    					<td>{{ sale.orderNum }}</td>
-    					<td>{{ sale.userName }}</td>
-    					<td>{{ sale.value }}</td>
-    					<td>{{ sale.qty }}</td>
-    				</tr>
-    			</tbody>
-    		</table>
-    	</div>
     </div>
-    <div data-drag="true" jqyoui-draggable class="col-md-6 table-responsive" ng-show="showTopSalesmen">
-    	<h2 class="col-md-8">Top 5 Salesmen</h2>
-        <div class="col-md-4 btn-group btn-group-xs" role="group">
-            <button type="button" class="btn btn-info" ng-click="update('topSalesmen')">Update</button>
-            <button type="button" class="btn btn-danger" ng-click="close('showTopSalesmen')">Close</button>
+    <div data-drag="true" jqyoui-draggable class="col-md-6 chart-best table-responsive" ng-show="showTopSalesOrders">
+        <div class="background-orange" ng-class="{'active' : activeTopSalesOrders }">
+            <div class="chart-header">
+    	        <h3 class="col-md-8">Top 5 Sales Orders</h3>
+                <div class="col-md-4 btn-group btn-group-xs" role="group">
+                    <button type="button" class="btn btn-info" ng-click="update('topSalesOrders')">Update</button>
+                    <button type="button" class="btn btn-danger" ng-click="close('showTopSalesOrders')">Close</button>
+                </div>
+            </div>
+	    	<div class="chart-content background-white">
+	    		<table class="table table-striped">
+	    			<thead>
+	    				<tr>
+	    					<th>Order</th>
+	    					<th>Name</th>
+	    					<th>Value</th>
+	    					<th>Quantity</th>
+	    				</tr>
+	    			</thead>
+	    			<tbody>
+	    				<tr ng-repeat="sale in orders">
+	    					<td>{{ sale.orderNum }}</td>
+	    					<td>{{ sale.userName }}</td>
+	    					<td>{{ sale.value }}</td>
+	    					<td>{{ sale.qty }}</td>
+	    				</tr>
+	    			</tbody>
+	    		</table>
+	    	</div>
         </div>
-    	<div>
-    		<table class="table table-striped">
-    			<thead>
-    				<tr>
-    					<th>Name</th>
-    					<th>Value</th>
-    				</tr>
-    			</thead>
-    			<tbody>
-    				<tr ng-repeat="salesman in salesmen">
-    					<td>{{ salesman[0] }}</td>
-    					<td>{{ salesman[1] }}</td>
-    				</tr>
-    			</tbody>
-    		</table>
-    	</div>
+    </div>
+    <div data-drag="true" jqyoui-draggable class="col-md-6 chart-best table-responsive" ng-show="showTopSalesmen">
+        <div class="background-purple" ng-class="{'active' : activeTopSalesmen }">
+            <div class="chart-header">
+		    	<h3 class="col-md-8">Top 5 Salesmen</h3>
+		        <div class="col-md-4 btn-group btn-group-xs" role="group">
+		            <button type="button" class="btn btn-info" ng-click="update('topSalesmen')">Update</button>
+		            <button type="button" class="btn btn-danger" ng-click="close('showTopSalesmen')">Close</button>
+		        </div>
+		    </div>
+	    	<div class="chart-content background-white">
+	    		<table class="table table-striped">
+	    			<thead>
+	    				<tr>
+	    					<th>Name</th>
+	    					<th>Value</th>
+	    				</tr>
+	    			</thead>
+	    			<tbody>
+	    				<tr ng-repeat="salesman in salesmen">
+	    					<td>{{ salesman[0] }}</td>
+	    					<td>{{ salesman[1] }}</td>
+	    				</tr>
+	    			</tbody>
+	    		</table>
+	    	</div>
+	    </div>
     </div>
 </div>
