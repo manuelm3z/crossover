@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css">
         <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+        <link rel="stylesheet" href="bower_components/sco.js/css/scojs.css">
 	    <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body ng-controller="AppController">
@@ -19,11 +20,75 @@
 		</div>
 		<footer>
 			<div class="container">
-				<a href="">Privacy Policy</a>
-				<a href="">Terms of Use</a>
-				<a href="">Support</a>
+				<a data-toggle="modal" data-target="#privacy">Privacy Policy</a>
+				<a data-toggle="modal" data-target="#terms">Terms of Use</a>
+				<a data-toggle="modal" data-target="#support">Support</a>
 			</div>
 		</footer>
+        <div class="modal fade" id="privacy" tabindex="-1" role="dialog" aria-labelledby="Privacy">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" >Privacy Policy</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="Terms">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">Terms of Use</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="support" tabindex="-1" role="dialog" aria-labelledby="Support" ng-controller="SupportController">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form name="supportForm" role="form" class="form-horizontal" ng-submit="send(supportForm)" novalidate>
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Support</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group" ng-class="{ 'state-error' : (supportForm.subject.$dirty && supportForm.subject.$error.required) || (supportForm.$submitted && supportForm.subject.$error.required) }">
+                                <label for="subject" class="control-label col-md-3">Subject</label>
+                                <div class="col-md-9">
+                                    <input id="subject" type="text" placeholder="" class="form-control" name="subject" ng-model="support.subject" ng-required="true"/>
+                                    <em for="subject" class="invalid" ng-show="(supportForm.subject.$dirty && supportForm.subject.$error.required) || (supportForm.$submitted && supportForm.subject.$error.required)">This field is required</em>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-class="{ 'state-error' : (supportForm.detail.$dirty && supportForm.detail.$error.required) || (supportForm.$submitted && supportForm.detail.$error.required) }">
+                                <label for="detail" class="control-label col-md-3">Detail</label>
+                                <div class="col-md-9">
+                                   <textarea id="detail" class="form-control" name="detail" ng-model="support.detail" ng-required="true" maxlength="500"></textarea>
+                                    <em for="detail" class="invalid" ng-show="(supportForm.detail.$dirty && supportForm.detail.$error.required) || (supportForm.$submitted && supportForm.detail.$error.required)">This field is required</em>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary min-width-button">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     	<script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.min.js"></script>
     	<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -35,6 +100,7 @@
     	<script type="text/javascript" src="bower_components/angular-dragdrop/src/angular-dragdrop.min.js"></script>
         <script type="text/javascript" src="bower_components/Chart.js/Chart.min.js"></script>
         <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+        <script src="bower_components/sco.js/js/sco.message.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
         <!-- Controlladores -->
         <script type="text/javascript" src="js/controllers/AppController.js"></script>
@@ -42,6 +108,7 @@
         <script type="text/javascript" src="js/controllers/HeaderController.js"></script>
         <script type="text/javascript" src="js/controllers/LoginController.js"></script>
         <script type="text/javascript" src="js/controllers/SidebarController.js"></script>
+        <script type="text/javascript" src="js/controllers/SupportController.js"></script>
         <!-- Fabricas -->
         <script type="text/javascript" src="js/factories/Login.js"></script>
         <script type="text/javascript" src="js/factories/Logout.js"></script>
