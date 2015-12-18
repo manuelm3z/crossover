@@ -93,3 +93,75 @@ form.login-form {
 	margin-top: 50px;
 	padding-top: 10px;
 }
+
+.page-sidebar 
+{
+    background-color: #445675;
+    margin-top: 50px;
+}
+.page-sidebar.navbar-collapse 
+{
+    padding: 0;
+}
+.page-sidebar.navbar-collapse.collapse
+{
+    display: none !important;
+}
+.page-sidebar.navbar-collapse.collapse.ng-scope.logged
+{
+    display: block !important;
+}
+.page-sidebar-menu 
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin: 0;
+    padding: 0;
+}
+    .page-sidebar-menu > li 
+    {
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: 0px;
+    }
+        ul.page-sidebar-menu > li > a {
+            border-bottom: 1px solid #37455f !important;
+            display: block;
+            position: relative;
+            margin: 0;
+            border: 0;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 14px;
+            trasition: 0.3s;
+        }
+        ul.page-sidebar-menu > li.open > a, 
+        ul.page-sidebar-menu > li > a:hover, 
+        ul.page-sidebar-menu > li:hover > a 
+        {
+            background: #dc6767;
+            color: #ffffff;
+        }
+
+@media (min-width: 768px) {
+    .page-sidebar 
+    {
+        width: 225px;
+        position: fixed;
+        top: 0;
+    }
+    .page-sidebar.navbar-collapse.collapse
+    {
+        height: 8000px !important;
+    }
+    .page-content.logged
+    {
+        margin-left: 225px;
+    }
+}
+.white-letter
+{
+    color: #ffffff;
+}
