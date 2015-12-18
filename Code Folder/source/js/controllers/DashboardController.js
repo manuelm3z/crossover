@@ -1,5 +1,6 @@
-app.controller('DashboardController', ['$rootScope', '$scope', 'SalesMan', 'SalesPerMonth', 'TopSalesOrders', 'TopSalesmen', function ($rootScope, $scope, SalesMan, SalesPerMonth, TopSalesOrders, TopSalesmen) {
+app.controller('DashboardController', ['$rootScope', '$scope', 'SalesMan', 'SalesPerMonth', 'TopSalesOrders', 'TopSalesmen', '$timeout', function ($rootScope, $scope, SalesMan, SalesPerMonth, TopSalesOrders, TopSalesmen, $timeout) {
 	$scope.showTotalSalesman = true;
+	$scope.activeTotalSalesman = false;
 	$scope.totalSalesman = function () {
 	    $scope.dataSalesman = [];
         $scope.labelsSalesman = [];
@@ -18,6 +19,7 @@ app.controller('DashboardController', ['$rootScope', '$scope', 'SalesMan', 'Sale
 	$scope.totalSalesman();
 
     $scope.showTotalSalesPerMonth = true;
+    $scope.activeTotalSalesPerMonth = false;
 	$scope.totalSalesPerMonth = function () {
 		$scope.dataPerMonth = Array([]);
         $scope.labelsPerMonth = [];
@@ -36,6 +38,7 @@ app.controller('DashboardController', ['$rootScope', '$scope', 'SalesMan', 'Sale
 	$scope.totalSalesPerMonth();
 
     $scope.showTopSalesOrders = true;
+    $scope.activeTopSalesOrders = false;
 	$scope.topSalesOrders = function () {
 		$scope.orders = [];
 
@@ -48,6 +51,7 @@ app.controller('DashboardController', ['$rootScope', '$scope', 'SalesMan', 'Sale
 	$scope.topSalesOrders();
 
     $scope.showTopSalesmen = true;
+    $scope.activeTopSalesmen = false;
     $scope.topSalesmen = function () {
 	    $scope.salesmen = [];
 
@@ -66,4 +70,17 @@ app.controller('DashboardController', ['$rootScope', '$scope', 'SalesMan', 'Sale
 	$scope.close = function (name) {
 		$scope[name] = false;
 	};
+
+	$rootScope.$on('Dashboard', function (event, data) {
+		if ($scope[data] === true) {
+			$scope['active' + data.substring(4)] = true;
+			console.log('active' + data.substring(4), $scope['active' + data.substring(4)]);
+			$timeout(function () {
+				$scope['active' + data.substring(4)] = false;
+				console.log('active' + data.substring(4), $scope['active' + data.substring(4)]);
+			},5000);
+		} else {
+		    $scope[data] = true;
+		}
+	});
 }]);
