@@ -287,6 +287,9 @@ footer .container.logged {
 .gray-letter {
     color: #777 !important;
 }
+.black-letter {
+    color: black !important;
+}
 .align-center {
     text-align: center;
 }
