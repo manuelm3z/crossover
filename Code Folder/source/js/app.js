@@ -58,6 +58,10 @@ app.run(['$rootScope', '$state', 'Session', function ($rootScope, $state, Sessio
                 $state.transitionTo(toState.name);
             }
         }
+        if ($rootScope.user !== undefined && toState.name === 'login') {
+            event.preventDefault();
+            $state.transitionTo('app.dashboard');
+        }
     });
 }]);
 
